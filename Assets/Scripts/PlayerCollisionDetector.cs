@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class PlayerCollisionDetector : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
     }
+
     void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("Caja"))
         {
+           // Buscamos el GameManager en la escena y le decimos que frene el tiempo
+           FindObjectOfType<GameManager>().GameOver();
+           
            Destroy(gameObject); 
         }
     }
